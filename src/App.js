@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import context from './Compontes/Context';
+import Navbar from './Compontes/Navbar';
+import Parent1 from './Compontes/Parent1';
+import Parent2 from './Compontes/Parent2';
+//import Child from './Child';
+import { useState } from 'react';
+
 
 function App() {
+  const [theme ,setTheme] =useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <context.Provider value={theme}>
+       <button onClick={()=>setTheme(!theme)}>Change theme</button>
+
+
+       <Navbar/>
+       <Parent1/>
+       <Parent2/>
+
+
+  
+
+
+
+
+    </context.Provider>
+    
   );
 }
 
